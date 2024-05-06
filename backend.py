@@ -58,7 +58,7 @@ def generate_teams():
 
     # Construct the messages for the chat API
     messages = [
-        {"role": "system", "content": f"""You are a Team Matching assistant. You will create teams of minimum 3 and maximum 4 people from a list of {num_players} players.
+        {"role": "system", "content": f"""You are a Team Matching assistant that precisely follows instructions on how to create teams based on player names and some attributes. You will create teams of minimum 3 and maximum 4 people from a list of {num_players} players.
         Make sure that the numbers match up and no one has to play alone! 
         Match the players based on their interests and background. 
         Generate a humorous or meaningful reason for why these players fit well within a team and come up with a creative team name. 
@@ -91,7 +91,7 @@ def generate_teams():
         - Adam Butz 
         - Hannah Klenk
         YOU NEED TO SEPARATE THESE PLAYERS INTO DIFFERENT TEAMS
-        NEVER PUT THE SAME PLAYER IN TWO TEAMS!!!
+        NEVER PUT THE SAME PLAYER IN TWO TEAMS!!! EVEN IF THE SAME PLAYER APPEARS MULTIPLE TIMES 
         FOLLOW THESE INSTRUCTION WITH HIGH ATTENTION AND DETAIL. FOLLOW EVERY STEP AND BE CAUTIOUS TO NOT MAKE ANY MISTAKES!"""},
         {"role": "user", "content": f"Here are the players: {player_descriptions}."}
 
