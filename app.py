@@ -28,7 +28,13 @@ def main():
     if st.button('Reset Database', key='reset_db'):
         backend.reset_database()
         st.success("Database has been reset to initial state.")
+        st.experimental_rerun()
 
+    # In the generate_teams function, after reading the players
+    df = backend.read_players()
+    if df.empty:
+        st.warning("No players to generate teams.")
+        return
 
 
 def get_base64(bin_file):
