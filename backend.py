@@ -86,6 +86,12 @@ def generate_teams():
         Instruction 7
         The reason you provide needs to make sense. Try do find something all the players in this specific team have in 
         common but avoid inventing anything and never contradict the player's provided data. Try to make it sound fun and elaborated.
+        EXTREMELY IMPORTANT INSTRUCTION: UNDER NO CIRCUMSTANCES CAN THESE PLAYERS BE IN ONE TEAM:
+        - Marco Szeidenleder
+        - Adam Butz 
+        - Hannah Klenk
+        YOU NEED TO SEPARATE THESE PLAYERS INTO DIFFERENT TEAMS
+        NEVER PUT THE SAME PLAYER IN TWO TEAMS!!!
         FOLLOW THESE INSTRUCTION WITH HIGH ATTENTION AND DETAIL. FOLLOW EVERY STEP AND BE CAUTIOUS TO NOT MAKE ANY MISTAKES!"""},
         {"role": "user", "content": f"Here are the players: {player_descriptions}."}
 
