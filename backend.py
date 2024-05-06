@@ -6,20 +6,39 @@ client = OpenAI()
 
 csv_file = 'player_data.csv'
 
+
+def reset_database():
+    headers = ['Vorname', 'Nachname', 'Lieblingsdrink', 'Lieblingshobby', 'Branche']
+    # Create an empty DataFrame with the specified headers
+    df = pd.DataFrame(columns=headers)
+    # Write this DataFrame to CSV, replacing any existing file
+    df.to_csv(csv_file, index=False)
+    print("Database has been reset. Current data:", df)
+
+
 def add_player(vorname, nachname, lieblingsdrink, lieblingshobby, branche):
     new_player = pd.DataFrame({
         'Vorname': [vorname],
         'Nachname': [nachname],
         'Lieblingsdrink': [lieblingsdrink],
         'Lieblingshobby': [lieblingshobby],
-        'branche': [branche]
+        'Branche': [branche]
     })
     try:
+        # Try to read the existing CSV file
         df = pd.read_csv(csv_file)
-        df = pd.concat([df, new_player], ignore_index=True)
     except FileNotFoundError:
+        # If the file does not exist, start with a new DataFrame
         df = new_player
+    else:
+        # Concatenate the new player data with existing DataFrame
+        df = pd.concat([df, new_player], ignore_index=True)
+
+    # Save the updated DataFrame back to the CSV file
     df.to_csv(csv_file, index=False)
+    print("Player added. Current players in the database:")
+    print(df)
+
 
 def read_players():
     try:
@@ -33,7 +52,7 @@ def generate_teams():
         return "No players to generate teams."
 
     # Convert dataframe to a string list of players
-    players_info = df.apply(lambda x: f"{x['Vorname']} {x['Nachname']}, likes {x['Lieblingsdrink']} and {x['Lieblingshobby']}, works in {x['branche']}.", axis=1).tolist()
+    players_info = df.apply(lambda x: f"{x['Vorname']} {x['Nachname']}, likes {x['Lieblingsdrink']} and {x['Lieblingshobby']}, works in {x['Branche']}.", axis=1).tolist()
     num_players = len(players_info)
     player_descriptions = ' '.join(players_info)
 
@@ -50,9 +69,8 @@ def generate_teams():
         INSTRUCTION 1
         These are special players :
         - Marco Szeidenleder
-        - Fine Stuhr-Wulff 
         - Adam Butz 
-        - Riccardo Destratis.
+        - Hannah Klenk
         It is extremely important that these players play in different Teams and are not assigned to the same team. 
         So each of them needs to be in a separate Team! They cannot share a team. THIS IS CRUCIAL!
         INSTRUCTION 2
@@ -62,12 +80,12 @@ def generate_teams():
         INSTRUCTION 4
         No Team can only have a single player. 
         INSTRUCTION 5
-        The minimum Size of a Team is 3, this means there must be a least three players in one team!
+        The minimum Size of a Team is 3!! this means there must be a least three players in one team!
         Instruction 6
         The maximum Size of a Team is 4, this means there must be no more than four players in one team!
         Instruction 7
         The reason you provide needs to make sense. Try do find something all the players in this specific team have in 
-        common but avoid inventing too much and never contradict the player's provided data. Try to make it sound fun and elaborated.
+        common but avoid inventing anything and never contradict the player's provided data. Try to make it sound fun and elaborated.
         FOLLOW THESE INSTRUCTION WITH HIGH ATTENTION AND DETAIL. FOLLOW EVERY STEP AND BE CAUTIOUS TO NOT MAKE ANY MISTAKES!"""},
         {"role": "user", "content": f"Here are the players: {player_descriptions}."}
 

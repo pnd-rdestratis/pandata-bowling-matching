@@ -24,6 +24,13 @@ def main():
             teams = backend.generate_teams()
             display_teams(teams)
 
+    # Add a button to reset the database
+    if st.button('Reset Database', key='reset_db'):
+        backend.reset_database()
+        st.success("Database has been reset to initial state.")
+
+
+
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
         data = f.read()

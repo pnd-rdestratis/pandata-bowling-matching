@@ -1,18 +1,4 @@
-Vorname,Nachname,Lieblingsdrink,Lieblingshobby,branche
-Laura,Müller,Wein,Lesen,Softwareentwicklung
-Max,Schmidt,Whisky,Fußball,Marketing
-Sophie,Wagner,Cocktails,Reisen,Finanzen
-Felix,Becker,Bier,Fotografie,Design
-Lena,Weber,Kaffee,Yoga,Medizin
-Jonas,Hofmann,Saft,Musik hören,Eventplanung
-Anna,Koch,Wasser,Tanzen,Lehramt
-Tim,Bauer,Cola,Video Spiele spielen,IT
-Maria,Schulz,Tee,Kochen,Journalismus
-Paula,Bergmann,Wein,Malen,Kunst
-Julian,Richter,Bier,Mountainbiken,Ingenieurwesen
-Sophia,Kühn,Smoothies,Laufen,Mode
-David,Lange,Kaffee,Lesen,Psychologie
-Marco,Szeidenleder,Weißwein,Bouldern,Unternehmensberatung
-Fine,Stuhr-Wulff,Gin Tonic,Rennrad fahren,Unternehmensberatung
-Riccardo,Destratis,Rotwein,Musik Produktion,Unternehmensberatung
-Adam,Butz,Bier,Fahrradpolo,Unternehmensberatung
+Vorname,Nachname,Lieblingsdrink,Lieblingshobby,Branche
+Adam,Butz,Bier,Polo,Data
+Marco,Szeidenleder,Bier,Bouldern,Data
+
