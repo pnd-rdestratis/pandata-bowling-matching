@@ -27,6 +27,7 @@ def main():
     # Add a button to reset the database
     if st.button('Reset Database', key='reset_db'):
         backend.reset_database()
+        st.cache_data.clear()
         st.success("Database has been reset to initial state.")
         st.experimental_rerun()
 
